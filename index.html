@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Les techniques de rédaction d’un article scientifique</title>
+<style>
+:root{--nv:#0f1f3d;--ac:#1d4f91;--bg:#f6f5f1;--sf:#fff;--sf2:#edf1f7;--tx:#1c2740;--mu:#53607a;--bd:#d3dbe7;--p0:#33507a;--p1:#1d5fa8;--p2:#17756f;--p3:#9b5d1c;--bad:#a8322a;--ok:#17744a;--sh:0 1px 2px #0f1f3d14,0 6px 16px #0f1f3d0d;color-scheme:light;--ff:"Inter","Source Sans 3","Segoe UI",system-ui,sans-serif;--fh:Georgia,"Source Serif 4","Times New Roman",serif}
+:root[data-t=dark]{--nv:#d6e6fb;--ac:#7db8f2;--bg:#0b1426;--sf:#121f38;--sf2:#182848;--tx:#e8eef8;--mu:#a6b5cd;--bd:#273a5b;--p0:#8fb0dd;--p1:#7db8f2;--p2:#4fc4b8;--p3:#e3a762;--bad:#f08a80;--ok:#5ed39b;--sh:0 1px 2px #0006,0 6px 16px #0004;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{height:100%;font-size:clamp(14px,min(1.4vw,2.5vh),25px)}
+body{height:100%;display:flex;flex-direction:column;overflow:hidden;font-family:var(--ff);background:var(--bg);color:var(--tx);line-height:1.45;background-image:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--ac) 9%,transparent),transparent 40%)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+header{display:flex;align-items:center;gap:.6rem;padding:.5rem .9rem;background:var(--sf);border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.trk{display:flex;gap:.25rem;flex-wrap:wrap}
+.trk button{border:0;background:none;padding:.3rem .65rem;border-radius:99px;font-size:.78rem;font-weight:600;color:var(--mu);display:flex;gap:.4rem;align-items:center}
+.trk button i{font-style:normal;width:1.35rem;height:1.35rem;border-radius:50%;display:grid;place-items:center;font-size:.65rem;background:var(--sf2);color:var(--mu)}
+.trk button.on{background:var(--sf2);color:var(--nv)}.trk button.on i{background:var(--c);color:#fff}
+.tools{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap}
+.btn{border:1px solid var(--bd);background:var(--sf);color:var(--nv);border-radius:8px;padding:.35rem .75rem;font-size:.82rem;font-weight:600;transition:.15s}
+.btn:hover:not(:disabled){border-color:var(--ac);background:var(--sf2)}.btn[aria-pressed=true]{background:var(--nv);color:var(--bg);border-color:var(--nv)}
+.btn.pr{background:var(--ac);border-color:var(--ac);color:#fff}.btn.pr:hover:not(:disabled){filter:brightness(1.1);background:var(--ac)}
+:root[data-t=dark] .btn.pr{color:#0b1426}
+.btn:disabled{opacity:.4;cursor:default}
+#bar{height:4px;background:var(--bd)}#bar i{display:block;height:100%;width:0;background:var(--pc,var(--ac));transition:width .4s,background .4s}
+main{flex:1;position:relative;min-height:0}
+.s{position:absolute;inset:0;overflow:auto;display:flex;padding:clamp(.8rem,3vh,2rem) clamp(1rem,5vw,4.5rem);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility .35s}
+.s.on{opacity:1;visibility:visible;transform:none}
+.in{margin:auto;width:100%;max-width:74rem;display:flex;flex-direction:column;gap:1.1rem}
+.k{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pc);margin-bottom:-.6rem}
+h1,h2{font-family:var(--fh);font-weight:600;color:var(--nv);line-height:1.15}
+h1{font-size:2.9rem}h2{font-size:2.15rem}
+h2::after{content:"";display:block;width:3.2rem;height:4px;border-radius:2px;background:var(--pc);margin-top:.55rem}
+h3{font-size:1.12rem;color:var(--nv);margin-bottom:.2rem}
+p,li{font-size:1.02rem}.lead{font-size:1.2rem;color:var(--mu);max-width:52rem}.mu{color:var(--mu)}
+b{color:var(--nv)}ul,ol{padding-left:1.2rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:1rem 1.15rem;box-shadow:var(--sh)}
+.card p,.card li{color:var(--mu)}
+.num{width:2.1rem;height:2.1rem;border-radius:50%;background:var(--pc);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem;margin-bottom:.6rem}
+:root[data-t=dark] .num,:root[data-t=dark] .on i{color:#0b1426}
+.flow{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:1.5rem}
+.flow>.card{position:relative}
+.flow>.card:not(:last-child)::after{content:"";position:absolute;top:50%;right:-1.15rem;width:.8rem;height:.8rem;border:solid var(--pc);border-width:3px 3px 0 0;transform:translateY(-50%) rotate(45deg)}
+.ex{border-left:4px solid var(--pc);background:color-mix(in srgb,var(--pc) 7%,var(--sf));border-radius:0 12px 12px 0;padding:.9rem 1.2rem;display:grid;gap:.4rem}
+.lb{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pc)}
+.q{border:1px solid;border-radius:10px;padding:.7rem 1rem}.q p{color:var(--tx)}
+.q.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,var(--sf))}.q.bad .lb{color:var(--bad)}
+.q.good{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 8%,var(--sf))}.q.good .lb{color:var(--ok)}
+.cmp{display:grid;gap:.7rem}.cmp .cols{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.cmp:not(.rev) .good{opacity:.12;filter:blur(5px);user-select:none}.cmp .good{transition:.4s}
+.cmp .btn{justify-self:start}
+.tag{display:inline-block;background:var(--bad);color:#fff;font:700 .68rem var(--ff);letter-spacing:.06em;padding:.15rem .55rem;border-radius:99px;vertical-align:middle}
+:root[data-t=dark] .tag{color:#0b1426}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--sf);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+th,td{padding:.6rem .9rem;text-align:left;font-size:1rem;border-bottom:1px solid var(--bd)}tr:last-child td{border-bottom:0}
+th{background:var(--nv);color:var(--bg);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+td:first-child{font-weight:700;color:var(--nv);width:34%}tbody tr:nth-child(even){background:var(--sf2)}
+a{color:var(--ac);font-weight:600}
+/* cover */
+.cv{display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:center}
+.cv h1{margin:.4rem 0 .6rem}.sub{font-size:1.25rem;color:var(--ac);font-weight:600}
+.pres{display:flex;flex-wrap:wrap;gap:.5rem .9rem;margin:1.2rem 0 .9rem}
+.pres span{font-weight:700;color:var(--nv);padding-left:.7rem;border-left:3px solid var(--p1);font-size:1.12rem}
+.pres span:nth-child(2){border-color:var(--p2)}.pres span:nth-child(3){border-color:var(--p3)}
+.meta{display:grid;gap:.55rem;border-top:1px solid var(--bd);padding-top:.9rem}.meta div{display:flex;gap:.8rem;flex-wrap:wrap}
+.meta dt{min-width:9rem;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);font-weight:700;padding-top:.2rem}.meta dd{font-weight:600}
+.cv svg{width:100%;max-width:21rem;justify-self:center;color:var(--ac)}
+/* road */
+.two{display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:center}
+.road{display:grid;gap:.8rem}
+.rd{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;text-align:left;background:var(--sf);border:1px solid var(--bd);border-left:6px solid var(--c);border-radius:12px;padding:.9rem 1.1rem;box-shadow:var(--sh);transition:.15s}
+.rd:hover{transform:translateX(4px);border-color:var(--c)}.rd .num{grid-row:span 2;margin:0;background:var(--c);align-self:center}
+.rd small{color:var(--mu);font-size:.85rem}
+.def{background:var(--nv);color:var(--bg);border-radius:14px;padding:1.3rem 1.6rem;font-size:1.25rem;font-family:var(--fh)}
+.def b{color:inherit;border-bottom:3px solid var(--ac)}:root[data-t=dark] .def{background:var(--sf2);color:var(--tx)}
+/* imrad */
+.im{display:flex;gap:.6rem;align-items:stretch;flex-wrap:wrap}
+.im button{flex:1;min-width:8rem;background:var(--sf);border:2px solid var(--bd);border-radius:12px;padding:.7rem;text-align:center;transition:.15s}
+.im button big{display:block;font:700 2.4rem/1 var(--fh);color:var(--pc)}.im button span{font-weight:700;color:var(--nv)}
+.im button[aria-selected=true]{border-color:var(--pc);background:color-mix(in srgb,var(--pc) 10%,var(--sf));transform:translateY(-3px)}
+.im em{align-self:center;color:var(--mu);font-size:.85rem}
+.pan{display:none}.pan.on{display:grid;animation:up .3s}
+@keyframes up{from{opacity:0;transform:translateY(6px)}}
+/* style chips, rows */
+.st{list-style:none;padding:0;display:grid;gap:.5rem;counter-reset:c}
+.st li{counter-increment:c;display:flex;gap:.7rem;align-items:center;color:var(--tx);font-weight:600}
+.st li::before{content:counter(c);width:1.7rem;height:1.7rem;border-radius:50%;background:var(--pc);color:#fff;display:grid;place-items:center;font-size:.8rem;flex:none}
+:root[data-t=dark] .st li::before{color:#0b1426}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:stretch}
+.vs .ne{align-self:center;font:700 2.2rem var(--fh);color:var(--pc)}
+.ban{background:var(--nv);color:var(--bg);border-radius:12px;padding:.9rem 1.3rem;text-align:center;font:600 1.4rem var(--fh)}.ban b{color:inherit}
+:root[data-t=dark] .ban{background:var(--sf2);color:var(--tx)}
+/* checklist */
+.chk{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.chk label{display:flex;gap:.8rem;align-items:center;padding:.8rem 1rem;background:var(--sf);border:1px solid var(--bd);border-radius:12px;cursor:pointer;font-weight:600;color:var(--nv);transition:.15s}
+.chk label:has(input:checked){border-color:var(--ok);background:color-mix(in srgb,var(--ok) 9%,var(--sf))}
+.chk input{width:1.4rem;height:1.4rem;accent-color:var(--ok);flex:none}
+.prog{display:flex;align-items:center;gap:1rem}.prog div{flex:1;height:8px;background:var(--bd);border-radius:4px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+/* error table & misc */
+.wip{border:2px dashed var(--p3);background:repeating-linear-gradient(-45deg,transparent 0 8px,color-mix(in srgb,var(--p3) 8%,transparent) 8px 16px),var(--sf)}
+.refs{display:grid;gap:.6rem;padding:0;list-style:none;counter-reset:r}
+.refs li{counter-increment:r;display:grid;grid-template-columns:2rem 1fr;gap:.5rem;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:.55rem .9rem;font-size:.95rem}
+.refs li::before{content:counter(r);font-weight:700;color:var(--pc);font-family:var(--fh);font-size:1.2rem}
+.warn{font-size:.9rem;color:var(--p3);font-weight:600;border-left:4px solid var(--p3);padding-left:.8rem}
+/* chrome */
+
+footer{display:flex;align-items:center;gap:.5rem;padding:.5rem .9rem;padding-bottom:max(.5rem,env(safe-area-inset-bottom));background:var(--sf);border-top:1px solid var(--bd)}
+#cnt{margin-left:auto;font-weight:700;color:var(--nv);font-variant-numeric:tabular-nums}
+#menu{position:absolute;right:.8rem;top:3.6rem;z-index:20;width:min(24rem,calc(100vw - 1.6rem));max-height:75vh;overflow:auto;background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:.5rem;box-shadow:0 12px 32px #0004}
+#menu[hidden]{display:none}#menu h4{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin:.6rem .6rem .2rem}
+#menu button{display:block;width:100%;text-align:left;border:0;background:none;padding:.4rem .6rem;border-radius:8px;font-size:.9rem}
+#menu button:hover{background:var(--sf2)}#menu button[aria-current=true]{background:var(--sf2);font-weight:700;color:var(--nv)}
+@media(max-width:800px){.cv,.two{grid-template-columns:1fr}.cv svg{display:none}.flow{grid-template-columns:1fr}.flow>.card:not(:last-child)::after{top:auto;bottom:-1.05rem;right:50%;transform:translateX(50%) rotate(135deg)}.vs{grid-template-columns:1fr}.vs .ne{display:none}h1{font-size:2rem}h2{font-size:1.6rem}.trk button span{display:none}.trk button.on span{display:inline}.btn .t{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{@page{size:A4 landscape;margin:10mm}
+:root,:root[data-t=dark]{--nv:#0f1f3d;--ac:#1d4f91;--bg:#fff;--sf:#fff;--sf2:#edf1f7;--tx:#1c2740;--mu:#53607a;--bd:#c9d2e0;--p1:#1d5fa8;--p2:#17756f;--p3:#9b5d1c;--bad:#a8322a;--ok:#17744a;--sh:none}
+html{font-size:11pt}body{display:block;height:auto;overflow:visible;background:#fff}header,footer,#bar,#menu{display:none}main{position:static}
+.s{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;overflow:visible;height:185mm;break-after:page;break-inside:avoid;padding:0;display:flex;flex-direction:column;justify-content:center}.s:last-child{break-after:auto}
+.cmp .good{opacity:1!important;filter:none!important}.cmp .btn,.pan{display:none}.pan{display:grid!important}.im button{break-inside:avoid}
+.in{gap:.7rem}.def,.ban,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.op{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+.op .big{font:700 clamp(5rem,13vw,9rem)/1 var(--fh);color:var(--pc)}
+.op ol{list-style:none;padding:0;display:grid;gap:.5rem;margin-top:1rem}
+.op li{padding:.6rem 1rem;background:var(--sf);border:1px solid var(--bd);border-left:5px solid var(--pc);border-radius:10px;font-weight:600;color:var(--nv)}
+.mono{font-family:Consolas,"Courier New",monospace;font-size:.92rem;background:var(--sf2);border-radius:6px;padding:.3rem .6rem;margin-top:.5rem;color:var(--tx)!important}
+.anx{display:grid;grid-template-columns:1fr 1.9fr 1fr;grid-template-rows:repeat(3,auto);gap:.2rem 2.4rem;align-items:center}
+.mock{grid-column:2;grid-row:1/4;display:grid;grid-template-rows:subgrid;background:#fff;color:#202124;border:1px solid var(--bd);border-radius:12px;padding:.6rem 1.2rem;box-shadow:var(--sh)}
+.mock>*{align-self:center;margin:0}.mock .ti{font:600 1.3rem/1.25 var(--ff);color:#1a55a6;text-decoration:underline}
+.mock .so{color:#17744a;font-size:.9rem;margin-top:.3rem}.mock .ab{font-size:1rem;color:#202124}
+.mock .kw{background:#eef0f3;border-radius:6px;padding:.3rem .6rem;font-size:.92rem;justify-self:start;color:#202124}
+.an{position:relative}.an p{color:var(--mu);font-size:.92rem;line-height:1.35}
+.an::after{content:"";position:absolute;top:50%;width:2.4rem;border-top:2px solid var(--pc)}
+.an.l{grid-column:1;grid-row:1;text-align:right}.an.l::after{right:-2.4rem}
+.an.r2{grid-column:3;grid-row:2}.an.r3{grid-column:3;grid-row:3}.an.r2::after,.an.r3::after{left:-2.4rem}
+@media(max-width:800px){.op{grid-template-columns:1fr}.anx{display:flex;flex-direction:column;align-items:stretch}.mock{display:flex;flex-direction:column;gap:.7rem}.an::after{display:none}.an.l{text-align:left}}
+@media print{.anx{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+<nav class="trk" id="trk" aria-label="Parties de l’exposé"></nav>
+<div class="tools">
+<button class="btn" id="bMenu" aria-expanded="false" aria-controls="menu">☰ <span class="t">Sommaire</span></button>
+<button class="btn" id="bDark" aria-pressed="false" title="Mode sombre / clair">Sombre</button>
+<button class="btn" id="bPrint" title="Imprimer">Imprimer</button>
+<button class="btn" id="bFs" title="Plein écran (touche F)">Plein écran</button>
+</div>
+</header>
+<div id="bar" role="progressbar" aria-label="Progression" aria-valuemin="1" aria-valuemax="26"><i></i></div>
+<nav id="menu" hidden aria-label="Sommaire"></nav>
+<main id="deck">
+<section class="s cover" data-p="0">
+<div class="in cv"><div>
+<p class="lb" style="color:var(--ac)">Exposé universitaire</p>
+<h1>Les techniques de rédaction d’un article scientifique</h1>
+<p class="sub">Module Langue et Communication Technique</p>
+<div class="pres" aria-label="Présentatrices"><span>****** ******</span><span>****** ******</span><span>****** ******</span></div>
+<dl class="meta">
+<div><dt>Établissement</dt><dd>******</dd></div>
+<div><dt>Encadrante</dt><dd>****** ******</dd></div>
+<div><dt>Année universitaire</dt><dd>2026–2027</dd></div></dl></div>
+<svg viewBox="0 0 300 340" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="150" cy="170" r="140" opacity=".12" stroke-width="2"/><circle cx="150" cy="170" r="100" opacity=".18" stroke-width="2"/><rect x="85" y="60" width="130" height="180" rx="10" stroke-width="3" fill="var(--sf)"/><path d="M105 95h60M105 120h90M105 140h90M105 160h70" stroke-width="5" stroke-linecap="round" opacity=".55"/><path d="M105 205l22-24 20 14 28-34 15 20" stroke="var(--p2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="255" cy="90" r="9" fill="var(--p3)" stroke="none"/><circle cx="45" cy="240" r="9" fill="var(--p2)" stroke="none"/><circle cx="215" cy="290" r="9" fill="var(--p1)" stroke="none"/><path d="M215 240l40-150M85 200L45 240M175 240l40 50" opacity=".35" stroke-dasharray="4 6"/></svg>
+</div></section>
+
+<section class="s" data-p="0">
+<div class="in two"><div><h2>Introduction générale et plan</h2>
+<p class="lead" style="margin-top:1rem">Un travail de recherche n’existe pour la communauté scientifique que lorsqu’il est <b>communiqué clairement</b>.</p>
+<p class="mu" style="margin-top:.8rem">Notre exposé suit le parcours de l’auteur, de l’idée à l’article vérifié.</p></div>
+<div class="road">
+<button class="rd" style="--c:var(--p1)" data-gop="1"><span class="num">I</span><h3>Comprendre et organiser un article scientifique</h3><small>****** ******</small></button>
+<button class="rd" style="--c:var(--p2)" data-gop="2"><span class="num">II</span><h3>Les techniques de rédaction</h3><small>****** ******</small></button>
+<button class="rd" style="--c:var(--p3)" data-gop="3"><span class="num">III</span><h3>Vérification, normes et bonnes pratiques</h3><small>****** ******</small></button></div></div></section>
+
+<section class="s" data-p="1" data-sp="Ouverture">
+<div class="in op"><div class="big" aria-hidden="true">I</div><div><h2>Comprendre et organiser un article scientifique</h2>
+<p class="lead">Présentée par ****** ******</p>
+<ol><li>Introduction générale et définition de l’article scientifique</li><li>Choix du sujet et formulation de la problématique</li><li>Élaboration du plan et structure générale de l’article</li></ol></div></div></section>
+
+<section class="s" data-p="1" data-sp="1. Introduction générale et définition de l’article scientifique">
+<div class="in"><h2>Importance de la rédaction scientifique</h2>
+<p class="lead">Un résultat non communiqué ne peut être ni évalué, ni discuté, ni réutilisé.</p>
+<div class="grid"><div class="card"><span class="num">1</span><h3>Rendre visible</h3><p>La publication fait entrer le travail dans le débat scientifique.</p></div>
+<div class="card"><span class="num">2</span><h3>Permettre la vérification</h3><p>Un lecteur peut contrôler la démarche et les données.</p></div>
+<div class="card"><span class="num">3</span><h3>Structurer la pensée</h3><p>Écrire force à clarifier la question, la méthode et les conclusions.</p></div></div></div></section>
+
+<section class="s" data-p="1" data-sp="1. Introduction générale et définition de l’article scientifique">
+<div class="in"><h2>Définition et fonctions</h2>
+<p class="def"><b>Article scientifique</b> : texte structuré présentant les résultats d’une recherche, destiné à une communauté de spécialistes et généralement évalué par des pairs avant publication.</p>
+<div class="flow"><div class="card"><span class="num">1</span><h3>Communiquer</h3><p>Diffuser les résultats obtenus.</p></div>
+<div class="card"><span class="num">2</span><h3>Partager</h3><p>Rendre le savoir accessible et vérifiable.</p></div>
+<div class="card"><span class="num">3</span><h3>Faire avancer</h3><p>Servir de base à de nouvelles recherches.</p></div></div></div></section>
+
+<section class="s" data-p="1" data-sp="1. Introduction générale et définition de l’article scientifique">
+<div class="in"><h2>Caractéristiques d’un article scientifique</h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))">
+<div class="card"><span class="num">1</span><h3>Clarté</h3><p>Idées compréhensibles dès la première lecture.</p></div>
+<div class="card"><span class="num">2</span><h3>Précision</h3><p>Termes exacts, données chiffrées, notions définies.</p></div>
+<div class="card"><span class="num">3</span><h3>Objectivité</h3><p>Faits et preuves, sans opinion personnelle.</p></div>
+<div class="card"><span class="num">4</span><h3>Rigueur</h3><p>Méthode justifiée et démarche reproductible.</p></div></div></div></section>
+
+<section class="s" data-p="1" data-sp="2. Choix du sujet et formulation de la problématique">
+<div class="in"><h2>Délimiter un sujet de recherche</h2>
+<div class="flow">
+<div class="card"><span class="lb" style="color:var(--bad)">Trop large</span><h3>Les écrans</h3><p>Tous les publics, tous les usages.</p></div>
+<div class="card"><span class="lb">Plus ciblé</span><h3>Les écrans chez les étudiants</h3><p>Une population identifiée.</p></div>
+<div class="card" style="border-color:var(--ok)"><span class="lb" style="color:var(--ok)">Délimité</span><h3>Temps d’écran et concentration</h3><p>Une relation précise, chez des étudiants universitaires.</p></div></div>
+<p class="ex"><span class="lb">Critères de délimitation</span><span><b>Population</b>, <b>domaine</b>, <b>période</b> et <b>faisabilité</b> (temps, accès aux données).</span></p></div></section>
+
+<section class="s" data-p="1" data-sp="2. Choix du sujet et formulation de la problématique">
+<div class="in"><h2>Problématique et objectifs de recherche</h2>
+<div class="grid g2">
+<div class="card"><span class="lb">Problématique</span><h3>Une question précise et pertinente</h3><ul><li>Liée au sujet délimité</li><li>Ouverte : elle appelle une analyse</li><li>Traitable avec des données accessibles</li></ul></div>
+<div class="card"><span class="lb">Objectifs</span><h3>Ce que la démarche vise à établir</h3><ul><li>Formulés avec un verbe d’action : étudier, mesurer, comparer</li><li>Résultats attendus, non résultats acquis</li></ul></div></div>
+<div class="ex"><span class="lb">Exemple</span>
+<p><b>Problématique :</b> « Quel est le lien entre le temps d’écran et la concentration des étudiants ? »</p>
+<p><b>Objectif :</b> étudier ce lien à partir de données adaptées.</p></div></div></section>
+
+<section class="s" data-p="1" data-sp="3. Élaboration du plan et structure générale de l’article">
+<div class="in"><h2>Élaborer un plan adapté</h2>
+<table><thead><tr><th>Type de recherche</th><th>Plan possible</th></tr></thead><tbody>
+<tr><td>Recherche empirique ou expérimentale</td><td>IMRAD : Introduction, Méthodes, Résultats, Discussion</td></tr>
+<tr><td>Revue de littérature</td><td>Introduction, recherche des sources, synthèse par thèmes, discussion, conclusion</td></tr>
+<tr><td>Étude de cas</td><td>Contexte, présentation du cas, analyse, discussion</td></tr>
+<tr><td>Réflexion théorique</td><td>Plan thématique ou argumentatif : thèse, arguments, conclusion</td></tr></tbody></table>
+<p class="warn" style="color:var(--mu);border-color:var(--p1)"><b>À noter :</b> ce sont des exemples ; les consignes de la discipline et de la revue priment.</p></div></section>
+
+<section class="s" data-p="1" data-sp="3. Élaboration du plan et structure générale de l’article">
+<div class="in"><h2>La structure IMRAD</h2>
+<div class="im" role="tablist" aria-label="Sections du modèle IMRAD">
+<button role="tab" aria-selected="true" aria-controls="m0"><big>I</big><span>Introduction</span></button>
+<button role="tab" aria-selected="false" aria-controls="m1"><big>M</big><span>Méthodes</span></button>
+<button role="tab" aria-selected="false" aria-controls="m2"><big>R</big><span>Résultats</span></button>
+<button role="tab" aria-selected="false" aria-controls="m3"><big>D</big><span>Discussion</span></button></div>
+<div class="card" style="min-height:8.5rem">
+<div class="pan on" id="m0" role="tabpanel"><h3>Introduction : pourquoi cette recherche ?</h3><p>Présente le contexte, le problème posé et les objectifs.</p></div>
+<div class="pan" id="m1" role="tabpanel"><h3>Méthodes : comment l’étude a-t-elle été menée ?</h3><p>Décrit les données, les participants, les outils et l’analyse, pour que la démarche soit vérifiable.</p></div>
+<div class="pan" id="m2" role="tabpanel"><h3>Résultats : qu’a-t-on observé ?</h3><p>Expose les faits observés, sans interprétation.</p></div>
+<div class="pan" id="m3" role="tabpanel"><h3>Discussion : que signifient les résultats ?</h3><p>Interprète, compare avec les travaux antérieurs, signale les limites et ouvre des perspectives.</p></div></div>
+<p class="warn" style="color:var(--mu);border-color:var(--p1)"><b>À noter :</b> IMRAD n’est pas une structure universelle ; elle varie selon le type d’article et la discipline.</p></div></section>
+
+<section class="s" data-p="2" data-sp="Ouverture">
+<div class="in op"><div class="big" aria-hidden="true">II</div><div><h2>Les techniques de rédaction d’un article scientifique</h2>
+<p class="lead">Présentée par ****** ******</p>
+<ol><li>Rédaction du titre, du résumé et des mots-clés</li><li>Rédaction des différentes parties de l’article</li><li>Techniques linguistiques et style scientifique</li></ol></div></div></section>
+
+<section class="s" data-p="2" data-sp="1. Rédaction du titre, du résumé et des mots-clés">
+<div class="in"><h2>Titre, résumé et mots-clés</h2>
+<p class="warn" style="color:var(--mu);border-color:var(--p2)"><span class="tag" style="background:var(--p2)">ILLUSTRATIF</span> Exemple pédagogique : auteur, année, revue et résultat sont fictifs.</p>
+<div class="anx">
+<div class="an l"><h3>Le titre</h3><p>Court, précis et informatif. Reflète le contenu réel.</p></div>
+<div class="mock"><div><p class="ti">Influence de l’utilisation des réseaux sociaux sur la concentration des étudiants</p><p class="so">Auteur, Année – Journal de Recherche Universitaire</p></div>
+<p class="ab">Cette étude examine le contexte de l’utilisation numérique, l’objectif d’évaluer les interruptions, la méthode par questionnaire, et les principaux résultats montrant une baisse de l’attention…</p>
+<p class="kw">réseaux sociaux, concentration, étudiants, numérique</p></div>
+<div class="an r2"><h3>Le résumé</h3><p>L’essentiel en miniature, compréhensible de manière autonome : contexte, objectif, méthode, résultats, conclusion.</p></div>
+<div class="an r3"><h3>Les mots-clés</h3><p>Les balises de recherche : des termes représentatifs qui facilitent le classement dans les bases de données.</p></div></div>
+</div></section>
+
+<section class="s" data-p="2" data-sp="2. Rédaction des différentes parties de l’article">
+<div class="in"><h2>Introduction et méthodologie</h2>
+<div class="grid g2">
+<div class="card"><h3>Rédiger l’introduction</h3><p style="margin-bottom:.7rem">Du général au particulier.</p><ul class="st"><li>Présenter le sujet et son contexte</li><li>Poser la problématique</li><li>Annoncer les objectifs</li></ul></div>
+<div class="card"><h3>Présenter la méthodologie</h3><p style="margin-bottom:.7rem">Permettre la reproduction de l’étude.</p><ul class="st"><li>Données et participants</li><li>Outils et procédures</li><li>Méthodes d’analyse</li></ul></div></div></div></section>
+
+<section class="s" data-p="2" data-sp="2. Rédaction des différentes parties de l’article">
+<div class="in"><h2>Résultats, discussion et conclusion</h2>
+<div class="vs"><div class="card"><span class="lb">Les faits</span><h3>Exposer et analyser les résultats</h3><p>Données observées, tableaux et graphiques clairs, sans interprétation.</p></div>
+<span class="ne" aria-label="est distinct de">≠</span>
+<div class="card"><span class="lb">L’interprétation</span><h3>Rédiger la discussion</h3><p>Sens des résultats, limites, comparaison avec les recherches antérieures.</p></div></div>
+<div class="card" style="border-left:6px solid var(--pc)"><span class="lb">Pour finir</span><h3>Rédiger la conclusion</h3><p>Réponse à la problématique, apports et perspectives, sans résultat nouveau.</p></div></div></section>
+
+<section class="s" data-p="2" data-sp="3. Techniques linguistiques et style scientifique">
+<div class="in"><h2>Un langage clair, précis et organisé</h2>
+<div class="grid">
+<div class="card"><h3>Clair et précis</h3><p>Phrases courtes, termes exacts.</p></div>
+<div class="card"><h3>Objectif</h3><p>Décrire sans jugement personnel.</p></div>
+<div class="card"><h3>Cohérent</h3><p>Une idée principale par paragraphe, dans un ordre logique.</p></div></div>
+<div class="ex cmp"><span class="lb">Reformulation</span><div class="cols">
+<div class="q bad"><span class="lb">Imprécis</span><p>« Les étudiants sont très distraits par leur téléphone. »</p></div>
+<div class="q good"><span class="lb">Scientifique</span><p>« Dans l’échantillon étudié, une utilisation prolongée du téléphone est associée à une baisse de concentration déclarée. »</p></div></div>
+<button class="btn" data-rev aria-pressed="false">Afficher la formulation scientifique</button></div></div></section>
+
+<section class="s" data-p="2" data-sp="3. Techniques linguistiques et style scientifique">
+<div class="in"><h2>Connecteurs logiques et termes scientifiques</h2>
+<div class="grid g2"><table><thead><tr><th>Fonction</th><th>Connecteurs</th></tr></thead><tbody>
+<tr><td>Ajouter</td><td>de plus, par ailleurs</td></tr>
+<tr><td>Opposer</td><td>cependant, en revanche</td></tr>
+<tr><td>Expliquer</td><td>en effet, car</td></tr>
+<tr><td>Conclure</td><td>donc, par conséquent</td></tr></tbody></table>
+<div class="card"><h3>Termes scientifiques</h3><ul><li>Définir un terme à sa première occurrence</li><li>Garder le même mot pour la même notion</li><li>Préférer le vocabulaire de la discipline</li><li>Écrire « associé à » et non « provoque » sans preuve causale</li></ul></div></div></div></section>
+
+<section class="s" data-p="3" data-sp="Ouverture">
+<div class="in op"><div class="big" aria-hidden="true">III</div><div><h2>Vérification, normes et bonnes pratiques</h2>
+<p class="lead">Présentée par ****** ******</p>
+<ol><li>Recherche documentaire et sélection des sources</li><li>Citations, références bibliographiques et intégrité scientifique</li><li>Révision, correction et mise en forme</li><li>Erreurs fréquentes, exemple pratique et conclusion</li></ol></div></div></section>
+
+<section class="s" data-p="3" data-sp="1. Recherche documentaire et sélection des sources">
+<div class="in"><h2>Identifier et évaluer les sources</h2>
+<div class="grid"><div class="card"><h3>Articles scientifiques</h3><p>Sources primaires, évaluées par les pairs.</p></div>
+<div class="card"><h3>Livres académiques</h3><p>Notions de base et synthèses.</p></div>
+<div class="card"><h3>Bases de données</h3><p>Google Scholar (général), PubMed (biomédecine), IEEE Xplore (ingénierie).</p></div></div>
+<div class="ex"><span class="lb">Évaluer la qualité et la pertinence</span><div class="grid g2">
+<p><b>Fiabilité :</b> auteurs, revue, évaluation par les pairs, date, méthode.</p><p><b>Pertinence :</b> lien avec la problématique, actualité, niveau de détail.</p></div></div></div></section>
+
+<section class="s" data-p="3" data-sp="2. Citations, références bibliographiques et intégrité scientifique">
+<div class="in"><h2>Citation dans le texte et référence complète</h2>
+<div class="grid g2">
+<div class="card"><span class="lb">Dans le texte</span><h3>Citation</h3><p>Renvoie brièvement à la source.</p><p class="mono">Style auteur-date : (Auteur, Année)</p><p class="mono">Style numéroté : [1]</p></div>
+<div class="card"><span class="lb">En fin de document</span><h3>Référence bibliographique</h3><p>Informations complètes pour retrouver la source.</p><p class="mono">Auteur, initiale. (Année). Titre. Revue, volume(numéro), pages.</p></div></div>
+<p class="warn" style="color:var(--mu);border-color:var(--p3)">Modèles de forme avec espaces réservés : le format exact dépend de la norme demandée.</p></div></section>
+
+<section class="s" data-p="3" data-sp="2. Citations, références bibliographiques et intégrité scientifique">
+<div class="in" style="gap:.8rem"><h2>Intégrité scientifique et normes</h2>
+<div class="card" style="border-color:var(--bad)"><span class="lb" style="color:var(--bad)">À éviter</span><h3>Plagiat</h3><p>Reprendre des <b>idées</b>, des <b>formulations</b> ou des <b>travaux d’autrui</b> sans les citer. Pour l’éviter : citer toute source, reformuler honnêtement, ne pas fabriquer ni modifier de données.</p></div>
+<table><thead><tr><th>Style</th><th>Usage courant (selon domaine et consignes)</th></tr></thead><tbody>
+<tr><td>APA</td><td>Sciences humaines et sociales (auteur-date)</td></tr>
+<tr><td>IEEE</td><td>Ingénierie et informatique (numérotée)</td></tr>
+<tr><td>Vancouver</td><td>Médecine et sciences biomédicales (numérotée)</td></tr></tbody></table></div></section>
+
+<section class="s" data-p="3" data-sp="3. Révision, correction et mise en forme">
+<div class="in"><h2>Réviser, corriger et mettre en forme</h2>
+<div class="chk" id="chk">
+<label><input type="checkbox">Corriger les erreurs linguistiques</label>
+<label><input type="checkbox">Corriger les erreurs scientifiques</label>
+<label><input type="checkbox">Vérifier la cohérence des idées</label>
+<label><input type="checkbox">Vérifier la structure de l’article</label>
+<label><input type="checkbox">Exactitude des citations et références</label>
+<label><input type="checkbox">Respect des consignes et normes de la discipline</label></div>
+<div class="prog"><b id="cc">0 / 6</b><div><i id="cb"></i></div><button class="btn" id="cr">Réinitialiser</button></div></div></section>
+
+<section class="s" data-p="3" data-sp="4. Erreurs fréquentes, exemple pratique et conclusion">
+<div class="in"><h2>Erreurs fréquentes à éviter</h2>
+<table><thead><tr><th>Erreur</th><th>Solution</th></tr></thead><tbody>
+<tr><td style="color:var(--bad)">Sujet trop large</td><td>Délimiter population, domaine et période</td></tr>
+<tr><td style="color:var(--bad)">Problématique floue</td><td>La formuler en une question précise</td></tr>
+<tr><td style="color:var(--bad)">Méthode peu expliquée</td><td>Détailler données, outils et analyse</td></tr>
+<tr><td style="color:var(--bad)">Résultats et discussion confondus</td><td>Séparer faits et interprétation</td></tr>
+<tr><td style="color:var(--bad)">Références incorrectes</td><td>Vérifier chaque source et la norme choisie</td></tr>
+<tr><td style="color:var(--bad)">Plagiat</td><td>Citer, reformuler, relire avec un outil de contrôle</td></tr></tbody></table></div></section>
+
+<section class="s" data-p="3" data-sp="4. Erreurs fréquentes, exemple pratique et conclusion">
+<div class="in" style="gap:.8rem"><h2>Exemple pratique : de l’idée au titre <span class="tag">ILLUSTRATIF</span></h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))">
+<div class="card"><span class="lb">1. Sujet</span><p>Influence du temps d’écran sur la concentration des étudiants.</p></div>
+<div class="card"><span class="lb">2. Problématique</span><p>Quel est le lien entre le temps d’écran et la concentration ?</p></div>
+<div class="card"><span class="lb">3. Objectif</span><p>Étudier ce lien à partir de données adaptées.</p></div>
+<div class="card"><span class="lb">4. Titre possible</span><p>Temps d’écran et concentration chez des étudiants universitaires : étude exploratoire</p></div></div></div></section>
+
+<section class="s" data-p="3" data-sp="4. Erreurs fréquentes, exemple pratique et conclusion">
+<div class="in" style="gap:.8rem"><h2>Exemple pratique : méthode, résultats et interprétation <span class="tag">FICTIF</span></h2>
+<div class="grid g2">
+<div class="card"><span class="lb">5. Méthodologie (illustrative)</span><p>Questionnaire en ligne, échelle de concentration, analyse de corrélation.</p></div>
+<div class="card wip"><span class="lb" style="color:var(--bad)">6. Résultats hypothétiques</span>
+<table style="margin-top:.5rem"><thead><tr><th>Temps d’écran / jour</th><th>Concentration moyenne</th></tr></thead><tbody><tr><td>Moins de 2 h</td><td>7,4 / 10</td></tr><tr><td>2 à 4 h</td><td>6,5 / 10</td></tr><tr><td>Plus de 4 h</td><td>5,6 / 10</td></tr></tbody></table>
+<p class="mu" style="margin-top:.4rem">Données inventées pour l’illustration.</p></div></div>
+<div class="ex"><span class="lb">7. Interprétation prudente et conclusion</span><p>Dans cet exemple inventé, un temps d’écran plus élevé est <b>associé</b> à une concentration plus faible. <b>Corrélation n’est pas causalité</b> : sommeil, charge de travail ou type d’usage pourraient jouer un rôle.</p></div></div></section>
+
+<section class="s" data-p="3" data-sp="4. Erreurs fréquentes, exemple pratique et conclusion">
+<div class="in"><h2>Conclusion générale</h2>
+<div class="flow">
+<div class="card" style="--pc:var(--p1)"><span class="num">1</span><h3>Préparer</h3><p>Sujet, problématique, objectifs, plan, sources.</p></div>
+<div class="card" style="--pc:var(--p2)"><span class="num">2</span><h3>Rédiger</h3><p>Structure adaptée, style clair et objectif.</p></div>
+<div class="card" style="--pc:var(--p3)"><span class="num">3</span><h3>Vérifier</h3><p>Relire, citer, contrôler, respecter les normes.</p></div></div>
+<p class="ban"><b>Clarté, rigueur et intégrité : les trois piliers d’un article crédible.</b></p></div></section>
+
+<section class="s" data-p="3" data-sp="Références">
+<div class="in" style="gap:.8rem"><h2>Références bibliographiques</h2>
+<h3>Références mobilisées dans l’exposé</h3>
+<ol class="refs">
+<li><span>Sollaci, L. B. et Pereira, M. G. (2004). The introduction, methods, results, and discussion (IMRAD) structure: a fifty-year survey. <i>Journal of the Medical Library Association</i>, 92(3), 364-367.</span></li>
+<li><span>American Psychological Association (2020). <i>Publication Manual of the American Psychological Association</i> (7<sup>e</sup> éd.).</span></li>
+<li><span>ICMJE. <i>Recommendations for the Conduct, Reporting, Editing, and Publication of Scholarly Work in Medical Journals</i> — <a href="https://www.icmje.org" target="_blank" rel="noopener">icmje.org</a></span></li></ol>
+<h3>Pour approfondir</h3>
+<ol class="refs" style="counter-reset:r 3">
+<li><span>Gastel, B. et Day, R. A. (2024). <i>How to Write and Publish a Scientific Paper</i> (9<sup>e</sup> éd.). Cambridge University Press.</span></li>
+<li><span>Committee on Publication Ethics (COPE) — <a href="https://publicationethics.org" target="_blank" rel="noopener">publicationethics.org</a></span></li>
+<li><span>Bases : <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener">PubMed</a>, <a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></span></li></ol></div></section>
+</main>
+<footer>
+<button class="btn" id="bHome" title="Première diapositive">⏮ <span class="t">Début</span></button>
+<button class="btn pr" id="bPrev">← Précédent</button>
+<button class="btn pr" id="bNext">Suivant →</button>
+<span id="cnt" aria-live="polite">1 / 26</span>
+</footer>
+<script>
+(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const S=$$('.s'),N=S.length,R=document.documentElement;
+const P=[['','Introduction','Introduction'],['I','Comprendre et organiser','Comprendre et organiser un article scientifique'],['II','Techniques de rédaction','Les techniques de rédaction d’un article scientifique'],['III','Vérification et normes','Vérification, normes et bonnes pratiques']];
+const first=P.map((_,p)=>S.findIndex(s=>+s.dataset.p===p));
+let i=0;
+$('#bar').setAttribute('aria-valuemax',N);
+S.forEach((s,k)=>{const p=+s.dataset.p;s.style.setProperty('--pc',`var(--p${p})`);s.setAttribute('role','group');s.setAttribute('aria-label',`Diapositive ${k+1} sur ${N}`);
+const h=$('h2',s);if(h){s.dataset.t=h.textContent.replace('ILLUSTRATIF','').trim();h.insertAdjacentHTML('beforebegin',`<p class="k">${p?'Partie '+P[p][0]+' · '+(s.dataset.sp||P[p][2]):P[p][2]}</p>`)}else s.dataset.t='Page de couverture'});
+$('#trk').innerHTML=P.map((p,k)=>`<button data-part="${k}" style="--c:var(--p${k})"><i>${p[0]||'•'}</i><span>${p[1]}</span></button>`).join('');
+let m='',lp=-1;
+S.forEach((s,k)=>{const p=+s.dataset.p;if(p!==lp){lp=p;m+=`<h4 style="--c:var(--p${p})">${p?'Partie '+P[p][0]+' · ':''}${P[p][2]}</h4>`}m+=`<button data-k="${k}">${k+1}. ${s.dataset.t}</button>`});
+$('#menu').innerHTML=m;
+const menu=$('#menu'),bMenu=$('#bMenu');
+function toggleMenu(o){menu.hidden=!o;bMenu.setAttribute('aria-expanded',o);if(o)(menu.querySelector('[aria-current=true]')||menu.querySelector('button')).focus();else if(document.activeElement&&menu.contains(document.activeElement))bMenu.focus()}
+function go(k,upd=true){i=Math.max(0,Math.min(N-1,(+k)|0));
+S.forEach((s,j)=>{const on=j===i;s.classList.toggle('on',on);s.setAttribute('aria-hidden',!on);on?s.removeAttribute('inert'):s.setAttribute('inert','')});
+S[i].scrollTop=0;const p=+S[i].dataset.p;
+$$('#trk button').forEach(b=>b.classList.toggle('on',+b.dataset.part===p));
+$$('#menu button').forEach(b=>b.setAttribute('aria-current',+b.dataset.k===i));
+$('#cnt').textContent=`${i+1} / ${N}`;
+const bar=$('#bar');bar.style.setProperty('--pc',`var(--p${p})`);$('i',bar).style.width=((i+1)/N*100)+'%';bar.setAttribute('aria-valuenow',i+1);
+
+$('#bPrev').disabled=i===0;$('#bNext').disabled=i===N-1;$('#bHome').disabled=i===0;
+if(menu.hidden===false)toggleMenu(false);
+if(upd&&location.hash!=='#'+(i+1)){try{history.replaceState(null,'','#'+(i+1))}catch(e){location.hash=i+1}}}
+$('#bNext').onclick=()=>go(i+1);$('#bPrev').onclick=()=>go(i-1);$('#bHome').onclick=()=>go(0);
+bMenu.onclick=e=>{e.stopPropagation();toggleMenu(menu.hidden)};
+menu.onclick=e=>{e.stopPropagation();const k=e.target.dataset.k;if(k!=null)go(k)};
+document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target))toggleMenu(false)});
+$('#trk').onclick=e=>{const b=e.target.closest('button');if(b)go(first[b.dataset.part])};
+$$('[data-gop]').forEach(b=>b.onclick=()=>go(first[b.dataset.gop]));
+
+const db=$('#bDark');function theme(d){R.dataset.t=d?'dark':'';db.setAttribute('aria-pressed',d);db.textContent=d?'Clair':'Sombre';try{localStorage.setItem('th',d?'d':'l')}catch(e){}}
+db.onclick=()=>theme(R.dataset.t!=='dark');
+try{theme(localStorage.getItem('th')==='d')}catch(e){theme(false)}
+$('#bPrint').onclick=()=>print();
+const fs=$('#bFs');
+function fsToggle(){if(document.fullscreenElement)document.exitFullscreen();else if(R.requestFullscreen)R.requestFullscreen().catch(()=>{})}
+if(!R.requestFullscreen)fs.hidden=true;fs.onclick=fsToggle;
+document.addEventListener('fullscreenchange',()=>{const f=!!document.fullscreenElement;fs.textContent=f?'Quitter':'Plein écran';fs.setAttribute('aria-pressed',f)});
+/* IMRAD */
+$$('.im').forEach(g=>{const tabs=$$('[role=tab]',g);tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);$('#'+x.getAttribute('aria-controls')).classList.toggle('on',on)})})});
+/* comparaisons */
+$$('[data-rev]').forEach(b=>b.onclick=()=>{const c=b.closest('.cmp'),r=c.classList.toggle('rev');b.setAttribute('aria-pressed',r);b.textContent=r?'Masquer la correction':b.dataset.l});
+$$('[data-rev]').forEach(b=>b.dataset.l=b.textContent);
+/* checklist */
+const ck=$$('#chk input');
+function upd(save){const n=ck.filter(c=>c.checked).length;$('#cc').textContent=`${n} / ${ck.length}`;$('#cb').style.width=(n/ck.length*100)+'%';if(save)try{sessionStorage.setItem('chk',JSON.stringify(ck.map(c=>c.checked)))}catch(e){}}
+try{const s=JSON.parse(sessionStorage.getItem('chk')||'[]');ck.forEach((c,k)=>c.checked=!!s[k])}catch(e){}
+ck.forEach(c=>c.onchange=()=>upd(true));$('#cr').onclick=()=>{ck.forEach(c=>c.checked=false);upd(true)};upd(false);
+/* clavier */
+addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.matches('input:not([type=checkbox]),textarea,select'))return;
+const k=e.key;
+if(k==='Escape'&&!menu.hidden){toggleMenu(false);return}
+if(k==='ArrowRight'||k==='PageDown'){e.preventDefault();go(i+1)}
+else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();go(i-1)}
+else if(k==='Home'){e.preventDefault();go(0)}else if(k==='End'){e.preventDefault();go(N-1)}
+else if(k==='f'||k==='F')fsToggle()});
+/* tactile */
+let x0=null,y0=0;const d=$('#deck');
+d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+d.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)go(i+(dx<0?1:-1))});
+/* URL */
+const fromHash=()=>{const n=parseInt(location.hash.slice(1),10);return Number.isFinite(n)?n-1:0};
+addEventListener('hashchange',()=>{const k=fromHash();if(k!==i)go(k,false)});
+go(fromHash());
+})();
+</script>
+</body>
+</html>
